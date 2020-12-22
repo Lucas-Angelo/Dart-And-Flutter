@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:olaMundo/app_controller.dart';
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() {
@@ -17,19 +17,14 @@ class HomePageState extends State<HomePage> {
         title: Text('Início'),
       ),
 
-      body: Container(
-        height: 200,
-        width: 200,
-        color: Colors.black,
-        child: Align( 
-          alignment: Alignment.center,
-          child: Container(
-            height: 100,
-            width: 100,
-            color: Colors.green,
+      body: Center(
+          child: Switch(
+            value: AppController.instance.isDarkTheme, 
+            onChanged: (value){
+            AppController.instance.changeTheme();
+          },
           ),
-        )
-      ),
+        ),
 
       floatingActionButton: InkWell(
         onLongPress: () {
