@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:olaMundo/app_controller.dart'; // Pacote com widge multi render da minh app
-import 'package:olaMundo/home_page.dart'; // Conteúdo do app
+import 'package:olaMundo/home_page.dart';
+import 'package:olaMundo/login_page.dart'; // Conteúdo do app
 
 class AppWidget extends StatelessWidget { // Widget estático da aplicação programada e visual
   @override
@@ -15,7 +16,7 @@ class AppWidget extends StatelessWidget { // Widget estático da aplicação pro
             ? Brightness.dark 
             : Brightness.light,
         ),
-        home: HomePage(), // Chama a home atualizada
+        home: LoginPage(), // Chama a home atualizada
         );
       },
     );
