@@ -14,20 +14,20 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: Text('Início'),
       ),
 
-      body: Center(
-        child: GestureDetector(
-          child: 
-            Text(
-              'Contador: $counter', style: TextStyle(fontSize: 25.00),
-              ),
-                onLongPress: (){
-                  setState(() {
-                    counter = 0;
-                  });
-                },
+      body: Container(
+        height: 200,
+        width: 200,
+        color: Colors.black,
+        child: Align( 
+          alignment: Alignment.center,
+          child: Container(
+            height: 100,
+            width: 100,
+            color: Colors.green,
+          ),
         )
       ),
 
