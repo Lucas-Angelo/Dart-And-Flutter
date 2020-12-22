@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:olaMundo/app_controller.dart';
-class HomePage extends StatefulWidget {
+
+class HomePage extends StatefulWidget { // Página estática
   @override
   State<HomePage> createState() {
-    return HomePageState();
+    return HomePageState(); // Chama a home com estado mutável
   }
 
 }
@@ -26,7 +27,7 @@ class HomePageState extends State<HomePage> {
           ),
         ),
 
-      floatingActionButton: InkWell(
+      floatingActionButton: InkWell( // Botão do canto inferior direito
         onLongPress: () {
           setState(() {
             counter=0;
