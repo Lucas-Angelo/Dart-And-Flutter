@@ -6,7 +6,7 @@ class AppWidget extends StatelessWidget { // Widget estático da aplicação pro
   @override
   Widget build(BuildContext context) { // Construtor do widget
     return AnimatedBuilder( // Função do app para poder atualiza-lo
-      animation: AppController.instance, // Instância que controla toda a aplicação quando atualizada
+      animation: AppController.instance, // Instância que vai ouvir quando houver modificação, para animar
       builder: (context, child) { // Construtor 
         return MaterialApp( // Função para criar o básico de um app 
         theme: ThemeData( // MaterialApp possui tema de pode ser modificado

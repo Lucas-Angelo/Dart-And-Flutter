@@ -16,16 +16,49 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Início'),
+        actions: [
+          CustomSwitch(),
+        ],
       ),
 
-      body: Center(
-          child: Switch(
-            value: AppController.instance.isDarkTheme, 
-            onChanged: (value){
-            AppController.instance.changeTheme();
-          },
+      body: Container(
+        width: double.infinity,
+        child: Column( // Existe tbm o ListView pra scroll
+          mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Contador: $counter', style: TextStyle(fontSize: 25.00),),
+              Container(
+                height: 20,
+              ),
+              CustomSwitch(),
+              Container(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.black,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.black,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.black,
+                  ),
+                ]
+              )
+            ],
           ),
-        ),
+      ),
 
       floatingActionButton: InkWell( // Botão do canto inferior direito
         onLongPress: () {
@@ -49,5 +82,16 @@ class HomePageState extends State<HomePage> {
       )
 
     );
+  }
+}
+
+class CustomSwitch extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Switch(
+            value: AppController.instance.isDarkTheme, 
+            onChanged: (value){
+            AppController.instance.changeTheme();
+          },);
   }
 }
