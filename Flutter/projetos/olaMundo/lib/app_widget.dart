@@ -16,7 +16,11 @@ class AppWidget extends StatelessWidget { // Widget estático da aplicação pro
             ? Brightness.dark 
             : Brightness.light,
         ),
-        home: LoginPage(), // Chama a home atualizada
+        initialRoute: '/',
+        routes: {
+          '/': (context) => LoginPage(),
+          '/home': (context) => HomePage(),
+        }, // Chama a home atualizada
         );
       },
     );
