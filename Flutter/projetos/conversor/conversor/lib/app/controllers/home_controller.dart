@@ -5,21 +5,21 @@ class HomeController {
 
   List<CurrencyModel> currencies;
 
-  TextEditingController fromText = TextEditingController();
-  TextEditingController toText = TextEditingController();
+  final TextEditingController toText;
+  final TextEditingController fromText;
   
   CurrencyModel fromCurrency;
   CurrencyModel toCurrency;
 
-  HomeController() {
+  HomeController({this.toText, this.fromText}) {
     currencies = CurrencyModel.getCurrencies();
-    fromCurrency = currencies[0];
-    toCurrency = currencies[1];
+    toCurrency = currencies[0];
+    fromCurrency = currencies[1];
   }
 
   void converter() {
     String text = toText.text;
-    double value = double.tryParse(text) ?? 1.0;
+    double value = double.tryParse(text.replaceAll(',', '.')) ?? 1.0;
     double returnValue = 0;
 
     if(fromCurrency.name == 'Real') {
