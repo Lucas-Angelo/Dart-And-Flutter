@@ -5,16 +5,16 @@ class HomeController {
 
   List<CurrencyModel> currencies;
 
-  TextEditingController toText = TextEditingController();
   TextEditingController fromText = TextEditingController();
+  TextEditingController toText = TextEditingController();
   
-  CurrencyModel toCurrency;
   CurrencyModel fromCurrency;
+  CurrencyModel toCurrency;
 
   HomeController() {
     currencies = CurrencyModel.getCurrencies();
-    toCurrency = currencies[0];
-    fromCurrency = currencies[1];
+    fromCurrency = currencies[0];
+    toCurrency = currencies[1];
   }
 
   void converter() {
