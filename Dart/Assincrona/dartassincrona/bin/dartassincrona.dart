@@ -3,36 +3,56 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future main() async {
-  final json = await fetch();
-  // print(json);
-  print(json['title']);
+  final todo = await fetch();
+  var objJson = todo.toJson();
+  print(todo.title);
+  print('\n${objJson}');
 }
 
-Future<Map> fetch() async {
+Future<Todo> fetch() async {
   var url = 'https://jsonplaceholder.typicode.com/todos/1';
   var response = await http.get(url);
   // print(response.body);
   var json = jsonDecode(response.body);
-  return json;
+  
+  var todo = Todo.fromJson(json);
+  /*
+  var todo = Todo(
+    title: json['title'], 
+    id: json['id'], 
+    userId: json['userId'], 
+    completed: json['completed']
+  );
+  */
+
+  return todo;
 }
 
-void chamandoFuncaoAsync(){
-  print4();
-  print('1');
-  print('2');
-  print('3');
-}
+class Todo {
 
-Future<void> print4() async {
-  await Future.delayed(Duration(seconds: 2));
-  print('4');
-}
+  final String title;
+  final int id;
+  final int userId;
+  final bool completed;
 
-void usandoFuture() {
-  var future = Future.delayed(Duration(seconds: 2));
-  future.then((value) => print('4'));
+  Todo({this.title, this.id, this.userId, this.completed});
 
-  print('1');
-  print('2');
-  print('3');
+  factory Todo.fromJson(Map json){
+    return Todo(
+      title: json['title'], 
+      id: json['id'], 
+      userId: json['userId'], 
+      completed: json['completed']
+    );
+  }
+
+  Map toJson() {
+    return {
+      'title': title,
+      'id': id,
+      'userId': userId,
+      'completed': completed
+    };
+  }
+
 }
