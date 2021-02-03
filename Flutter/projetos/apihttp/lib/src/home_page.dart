@@ -9,12 +9,12 @@ class HomePage extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: 10,
-        itemBuilder: (BuildContext context, int index) { 
+        itemBuilder: (BuildContext context, int index) {
           return ListTile(
             title: Text('item $index'),
           );
-       },
-      )
+        },
+      ),
     );
   }
 }
