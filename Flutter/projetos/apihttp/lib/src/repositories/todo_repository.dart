@@ -6,6 +6,9 @@ class TodoRepository {
   final url = 'https://jsonplaceholder.typicode.com/todos';
 
   TodoRepository([Dio client]) {
+    // Forma simplificada
+    // dio = client ?? Dio();
+
     if (client == null) {
       this.dio = new Dio();
     } else {
@@ -27,5 +30,7 @@ class TodoRepository {
     }
 
     return todos;
+    // Outra forma:
+    //return list.map((json) => TodoModel.fromJson(json)).toList();
   }
 }
